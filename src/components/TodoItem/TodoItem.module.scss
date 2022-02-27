@@ -1,0 +1,30 @@
+.todoitem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+
+    &__title{
+
+    }
+
+    &__input{
+
+    }
+
+    &_completed{
+        // text-decoration: line-through;
+        color: grey;
+
+        &:after{
+            content: '';
+            position: absolute;
+            width: 96%;
+            left: 0;
+            border: 1px solid grey;
+            
+        }
+    }
+}
+

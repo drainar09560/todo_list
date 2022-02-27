@@ -1,0 +1,10 @@
+.todo{
+
+    &__container{
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(1, 2fr 1fr);
+        gap: 20px;
+    }
+}
