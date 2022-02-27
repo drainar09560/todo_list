@@ -4,7 +4,7 @@ import styles from './TodoList.module.scss'
 
 
 
-export const TodoList = ({todos, toggle, filter}) => {
+export const TodoList = ({todos, toggle, filter, remove}) => {
     
 
     return (
@@ -22,6 +22,7 @@ export const TodoList = ({todos, toggle, filter}) => {
                             id={todo.id}
                             toggleStatus={toggle} 
                             status={todo.status}
+                            remove={remove}
                         />
                         : 
                         filter.includes(todo.status)
@@ -32,6 +33,7 @@ export const TodoList = ({todos, toggle, filter}) => {
                             id={todo.id}
                             toggleStatus={toggle} 
                             status={todo.status}
+                            remove={remove}
                         />                   
                     ))
                 }

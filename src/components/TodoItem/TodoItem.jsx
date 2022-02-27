@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './TodoItem.module.scss'
 
-export const TodoItem = ({id, toggleStatus, status, title}) => {
+export const TodoItem = ({id, toggleStatus, status, title, remove}) => {
     const rootClasses = [styles.todoitem]
     // const [completed, setCompleted] = React.useState(false)
     
@@ -12,7 +12,10 @@ export const TodoItem = ({id, toggleStatus, status, title}) => {
     return (
         <div className={rootClasses.join(' ')}>
             <p className={styles.todoitem__title}>{title}</p>
-            <input type="checkbox" className={styles.todoitem__input} onChange={() => toggleStatus(id)} checked={status}/>  
+            <div>
+                <input type="checkbox" className={styles.todoitem__input} onChange={() => toggleStatus(id)} checked={status}/>
+                <button onClick={() => remove(id)}>del</button>
+            </div>
         </div>
     )
 }

@@ -14,7 +14,6 @@ export const Todo = () => {
 
     const [filter, setFilter] = React.useState(['all'])
 
-    console.log(todos);
     const addTodo = (title) => {
         if (title === ''){
             throw new Error('input is empty')
@@ -25,7 +24,6 @@ export const Todo = () => {
             ]
         )
     }
-    console.log('filter: ' + filter);
     const toggleStatus = (id) => {
         setTodos(todos.map(item => {
             if(item.id === id){
@@ -42,13 +40,21 @@ export const Todo = () => {
         // option === 'all' ? setFilter([]) : filter.includes(option) ? setFilter(filter.filter(item => item !== option)) : setFilter(prev => [...prev, option])
         filter.includes(option) ? setFilter(prev => prev.filter(item => item !== option)) : setFilter(prev => [...prev, option])
     }
+
+    const deleteTodo = (id) => {
+        setTodos(todos.filter(todo => todo.id !== id))
+        console.log('click');
+    }
+
+    console.log('filter: ' + filter);
+    console.log(todos);
     
     return(
         <div className={styles.todo}>
             <div className={styles.todo__container}>
                 <TodoStats todos={todos}/>
                 <TodoForm addTodo={addTodo}/>
-                <TodoList todos={todos} toggle={toggleStatus} filter={filter}/>
+                <TodoList todos={todos} toggle={toggleStatus} filter={filter} remove={deleteTodo}/>
                 <TodoFilter filter={filteredTodos} options={[
                     {value: 'all', text: 'Все', checked: true},
                     {value: true, text: 'Завершеные'},
