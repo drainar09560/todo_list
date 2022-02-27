@@ -12,8 +12,9 @@ export const Todo = () => {
     
     const [todos, setTodos] = useGetTodo()
 
-    const [filter, setFilter] = React.useState(false)
+    const [filter, setFilter] = React.useState(['all'])
 
+    console.log(todos);
     const addTodo = (title) => {
         if (title === ''){
             throw new Error('input is empty')
@@ -24,6 +25,7 @@ export const Todo = () => {
             ]
         )
     }
+    console.log('filter: ' + filter);
     const toggleStatus = (id) => {
         setTodos(todos.map(item => {
             if(item.id === id){
@@ -34,11 +36,11 @@ export const Todo = () => {
             }
             return item
         }))
-        // setTodos(prev => prev.filter(item => item.id === id))
     } 
     
-    const filteredTodos = (e) => {
-        filter ? setFilter(false) : setFilter(e.target.name)
+    const filteredTodos = (option) => {
+        // option === 'all' ? setFilter([]) : filter.includes(option) ? setFilter(filter.filter(item => item !== option)) : setFilter(prev => [...prev, option])
+        filter.includes(option) ? setFilter(prev => prev.filter(item => item !== option)) : setFilter(prev => [...prev, option])
     }
     
     return(
@@ -48,9 +50,9 @@ export const Todo = () => {
                 <TodoForm addTodo={addTodo}/>
                 <TodoList todos={todos} toggle={toggleStatus} filter={filter}/>
                 <TodoFilter filter={filteredTodos} options={[
-                    {value: 'all', text: 'Все'},
-                    {value: 'completed', text: 'Завершеные'},
-                    {value: 'notcompleted', text: 'Незавершенные'},
+                    {value: 'all', text: 'Все', checked: true},
+                    {value: true, text: 'Завершеные'},
+                    {value: false, text: 'Незавершенные'},
                 ]}/>
             </div>
         </div>

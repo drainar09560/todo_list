@@ -1,9 +1,7 @@
 import styles from './TodoForm.module.scss'
 import React from 'react'
 
-export const TodoForm = (addTodo) => {
-    
-    
+export const TodoForm = ({addTodo}) => {
     
 
     const inputRef = React.useRef()

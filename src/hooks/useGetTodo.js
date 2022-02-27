@@ -13,13 +13,7 @@ const useGetTodo = () => {
 
     useEffect(() => {
         if(!loading) {
-            setTodo(data.missions.map(obj => {
-                    return {
-                        ...obj,
-                        status: false
-                    }
-                })
-            )
+            setTodo(data.missions.map(obj => {return {...obj, status: false}}))
         }
     }, [data])
         
