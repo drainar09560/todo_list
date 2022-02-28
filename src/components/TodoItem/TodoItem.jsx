@@ -3,7 +3,6 @@ import styles from './TodoItem.module.scss'
 
 export const TodoItem = ({id, toggleStatus, status, title, remove}) => {
     const rootClasses = [styles.todoitem]
-    // const [completed, setCompleted] = React.useState(false)
     
     if(status) {
         rootClasses.push(styles.todoitem_completed)

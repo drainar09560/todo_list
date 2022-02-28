@@ -37,13 +37,11 @@ export const Todo = () => {
     } 
     
     const filteredTodos = (option) => {
-        // option === 'all' ? setFilter([]) : filter.includes(option) ? setFilter(filter.filter(item => item !== option)) : setFilter(prev => [...prev, option])
         filter.includes(option) ? setFilter(prev => prev.filter(item => item !== option)) : setFilter(prev => [...prev, option])
     }
 
     const deleteTodo = (id) => {
         setTodos(todos.filter(todo => todo.id !== id))
-        console.log('click');
     }
 
     console.log('filter: ' + filter);

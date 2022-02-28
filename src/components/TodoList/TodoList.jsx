@@ -12,7 +12,6 @@ export const TodoList = ({todos, toggle, filter, remove}) => {
             <div className={styles.todolist__container}>
                 {
                     todos
-                    // .filter(todo => filter.includes(todo.status) ? true : false)
                     .map(todo => (
                         filter.includes('all')
                         ?
